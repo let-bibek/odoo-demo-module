@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <menuitem id="child_menu_item_book" name="Book"
+
+       />
+
+    <!--    Book Details-->
+    <record id="book_form_record" model="ir.ui.view">
+        <field name="name">Book Form View</field>
+        <field name="model">revision.schema</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="first_name" />
+                            <field name="surname" />
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!--    Actions-->
+
+    <record id="library_book_actions" model="ir.actions.act_window">
+        <field name="name">Books</field>
+        <field name="res_model">revision.schema</field>
+        <field name="view_mode">tree,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Insert New Book
+            </p>
+        </field>
+    </record>
+
+
+    <!--    Book details list-->
+
+    <record id="library_book_list" model="ir.ui.view">
+        <field name="name">Book List</field>
+        <field name="model">revision.schema</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="first_name" />
+                <field name="surname" />
+            </tree>
+        </field>
+    </record>
+</odoo>

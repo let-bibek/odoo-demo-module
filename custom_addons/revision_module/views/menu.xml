@@ -1,0 +1,131 @@
+<odoo>
+    <!--    App navigation-->
+    <menuitem id="menu_triplicate_root" name="Triplicate" />
+
+    <!--    Triplicate actions-->
+    <record id="triplicate_model_actions" model="ir.actions.act_window">
+        <field name="name">revision.model.action</field>
+        <field name="res_model">revision.schema</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <!--        Actual navigation items-->
+    <menuitem id="menu_triplicate_child_boce" name="BoCE" parent="menu_triplicate_root"
+    />
+    <menuitem id="menu_triplicate_child_bse" name="BSE" parent="menu_triplicate_root"
+    />
+    <menuitem id="menu_triplicate_child_bce" name="BCE" parent="menu_triplicate_root"
+    />
+    <menuitem id="menu_triplicate_child_bcre" name="BCRE" parent="menu_triplicate_root"
+    />
+    <menuitem id="menu_triplicate_child_configuration" name="Configuration"
+        parent="menu_triplicate_root"
+    />
+
+    <!--    Sub menus-->
+
+    <!--    Submenu for BoCE-->
+    <menuitem id="submenu_item_boce_sem_first" name="Semester I" parent="menu_triplicate_child_boce"
+        action="triplicate_model_actions" />
+    <menuitem id="submenu_item_boce_sem_second" name="Semester II"
+        parent="menu_triplicate_child_boce"
+        action="triplicate_model_actions" />
+    <menuitem id="submenu_item_boce_sem_third" name="Semester III"
+        parent="menu_triplicate_child_boce"
+        action="triplicate_model_actions" />
+    <menuitem id="submenu_item_boce_sem_fourth" name="Semester IV"
+        parent="menu_triplicate_child_boce"
+        action="triplicate_model_actions" />
+    <menuitem id="submenu_item_boce_sem_fifth" name="Semester V" parent="menu_triplicate_child_boce"
+        action="triplicate_model_actions" />
+    <menuitem id="submenu_item_boce_sem_sixth" name="Semester VI"
+        parent="menu_triplicate_child_boce"
+        action="triplicate_model_actions" />
+    <menuitem id="submenu_item_boce_sem_seventh" name="Semester VII"
+        parent="menu_triplicate_child_boce"
+        action="triplicate_model_actions" />
+    <menuitem id="submenu_item_boce_sem_eighth" name="Semester VIII"
+        parent="menu_triplicate_child_boce"
+        action="triplicate_model_actions" />
+
+    <!--    Submenu for BSE-->
+    <menuitem id="submenu_item_bse_sem_first" name="Semester I" parent="menu_triplicate_child_bse"
+        action="triplicate_model_actions" />
+    <menuitem id="submenu_item_bse_sem_second" name="Semester II" parent="menu_triplicate_child_bse"
+        action="triplicate_model_actions" />
+    <menuitem id="submenu_item_bse_sem_third" name="Semester III" parent="menu_triplicate_child_bse"
+        action="triplicate_model_actions" />
+    <menuitem id="submenu_item_bse_sem_fourth" name="Semester IV" parent="menu_triplicate_child_bse"
+        action="triplicate_model_actions" />
+    <menuitem id="submenu_item_bse_sem_fifth" name="Semester V" parent="menu_triplicate_child_bse"
+        action="triplicate_model_actions" />
+    <menuitem id="submenu_item_bse_sem_sixth" name="Semester VI" parent="menu_triplicate_child_bse"
+        action="triplicate_model_actions" />
+    <menuitem id="submenu_item_bse_sem_seventh" name="Semester VII"
+        parent="menu_triplicate_child_bse"
+        action="triplicate_model_actions" />
+    <menuitem id="submenu_item_bse_sem_eighth" name="Semester VIII"
+        parent="menu_triplicate_child_bse"
+        action="triplicate_model_actions" />
+
+    <!--    Submenu for BCE-->
+    <menuitem id="submenu_item_bce_sem_first" name="Semester I" parent="menu_triplicate_child_bce"
+        action="triplicate_model_actions" />
+    <menuitem id="submenu_item_bce_sem_second" name="Semester II" parent="menu_triplicate_child_bce"
+        action="triplicate_model_actions" />
+    <menuitem id="submenu_item_bce_sem_third" name="Semester III" parent="menu_triplicate_child_bce"
+        action="triplicate_model_actions" />
+    <menuitem id="submenu_item_bce_sem_fourth" name="Semester IV" parent="menu_triplicate_child_bce"
+        action="triplicate_model_actions" />
+    <menuitem id="submenu_item_bce_sem_fifth" name="Semester V" parent="menu_triplicate_child_bce"
+        action="triplicate_model_actions" />
+    <menuitem id="submenu_item_bce_sem_sixth" name="Semester VI" parent="menu_triplicate_child_bce"
+        action="triplicate_model_actions" />
+    <menuitem id="submenu_item_bce_sem_seventh" name="Semester VII"
+        parent="menu_triplicate_child_bce"
+        action="triplicate_model_actions" />
+    <menuitem id="submenu_item_bce_sem_eighth" name="Semester VIII"
+        parent="menu_triplicate_child_bce"
+        action="triplicate_model_actions" />
+
+
+    <!--    Submenu for BCRE-->
+    <menuitem id="submenu_item_bcre_sem_first" name="Semester I" parent="menu_triplicate_child_bcre"
+        action="triplicate_model_actions" />
+    <menuitem id="submenu_item_bcre_sem_second" name="Semester II"
+        parent="menu_triplicate_child_bcre"
+        action="triplicate_model_actions" />
+    <menuitem id="submenu_item_bcre_sem_third" name="Semester III"
+        parent="menu_triplicate_child_bcre"
+        action="triplicate_model_actions" />
+    <menuitem id="submenu_item_bcre_sem_fourth" name="Semester IV"
+        parent="menu_triplicate_child_bcre"
+        action="triplicate_model_actions" />
+    <menuitem id="submenu_item_bcre_sem_fifth" name="Semester V" parent="menu_triplicate_child_bcre"
+        action="triplicate_model_actions" />
+    <menuitem id="submenu_item_bcre_sem_sixth" name="Semester VI"
+        parent="menu_triplicate_child_bcre"
+        action="triplicate_model_actions" />
+    <menuitem id="submenu_item_bcre_sem_seventh" name="Semester VII"
+        parent="menu_triplicate_child_bcre"
+        action="triplicate_model_actions" />
+    <menuitem id="submenu_item_bcre_sem_eighth" name="Semester VIII"
+        parent="menu_triplicate_child_bcre"
+        action="triplicate_model_actions" />
+
+    <!--    Submenu for Configuration-->
+    <menuitem id="submenu_item_config_semester" name="Semester"
+        parent="menu_triplicate_child_configuration"
+    />
+
+    <menuitem id="submenu_item_config_subjects" name="Subjects"
+        parent="menu_triplicate_child_configuration"
+        action="triplicate_model_actions" />
+
+    <!--    sub menu of submenu configuration-->
+    <menuitem id="submenu_sub_item_config_semester" name="Semester"
+        parent="submenu_item_config_semester"
+        action="triplicate_model_actions"
+    />
+
+</odoo>
