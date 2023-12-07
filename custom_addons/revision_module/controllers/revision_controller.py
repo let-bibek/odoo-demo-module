@@ -30,6 +30,41 @@ class VehicleCurrentLocation(http.Controller):
             json.dumps(serialized_response), content_type="application/json"
         )
 
+    # get: /api/v1/vehicleLocations/{id}
+    @http.route(
+        "/api/v1/vehicleLocations/<int:id>",
+        methods=["GET"],
+        type="http",
+        auth="public",
+        website=True,
+        csrf=False,
+    )
+    def get_vehicle_location(self, id, **kwargs):
+        vehicle_location = (
+            http.request.env["revision.schema"]
+            .sudo()
+            .search([("id", "=", id)], limit=1)
+        )
+
+        # Check if location is found
+        if vehicle_location:
+            vehicle_location_response = {
+                "id": vehicle_location.id,
+                "first_name": vehicle_location.first_name,
+                "last_name": vehicle_location.surname,
+            }
+
+            return http.Response(
+                json.dumps(vehicle_location_response), content_type="application/json"
+            )
+        else:
+            # Return 404 response if record is not found
+            return http.Response(
+                json.dumps({"error": "Record Not Found"}),
+                status=404,
+                content_type="application/json",
+            )
+
     # post: /api/v1/vehicleLocation/create
     @http.route(
         "/api/v1/vehicleLocations/create",
@@ -72,37 +107,69 @@ class VehicleCurrentLocation(http.Controller):
                 content_type="application/json",
             )
 
-    # get: /api/v1/vehicleLocations/{id}
+    # put: /api/v1/vehicleLocations/{id}
     @http.route(
         "/api/v1/vehicleLocations/<int:id>",
-        methods=["GET"],
+        methods=["PUT"],
         type="http",
-        auth="public",
         website=True,
+        auth="public",
         csrf=False,
     )
-    def get_vehicle_location(self, id, **kwargs):
-        vehicle_location = (
-            http.request.env["revision.schema"]
-            .sudo()
-            .search([("id", "=", id)], limit=1)
-        )
+    def update_vehicle_location(self, id, **kwargs):
+        # Get the users update request data
+        request_json = json.loads(http.request.httprequest.data)
 
-        # Check if location is found
-        if vehicle_location:
-            vehicle_location_response = {
-                "id": vehicle_location.id,
-                "first_name": vehicle_location.first_name,
-                "last_name": vehicle_location.surname,
+        # Access the matched vehicle location from the database
+        vehicle_location_model = http.request.env["revision.schema"].browse(id)
+
+        # Check if there is any record with matching id
+        if vehicle_location_model:
+            # Store the data from request body in the variables
+            vehicle_location_request = {
+                "first_name": request_json.get("first_name"),
+                "surname": request_json.get("surname"),
             }
-
+            # Update the vehicle location record
+            vehicle_location_model.sudo().write(vehicle_location_request)
+            vehicle_location_response = {
+                "id": vehicle_location_model.id,
+                "first_name": vehicle_location_model.first_name,
+                "last_name": vehicle_location_model.surname,
+            }
+            # Returning the response
             return http.Response(
                 json.dumps(vehicle_location_response), content_type="application/json"
             )
         else:
-            # Return 404 response if record is not found
             return http.Response(
-                json.dumps({"error": "Record Not Found"}),
+                json.dumps({"error": "The requested operation couldn't be completed"}),
+                status=404,
+                content_type="application/json",
+            )
+
+    # delete: /api/v1/vehicleLocations/{id}
+    @http.route(
+        "/api/v1/vehicleLocations/<int:id>",
+        methods=["DELETE"],
+        type="http",
+        website=True,
+        auth="public",
+        csrf=False,
+    )
+    def delete_vehicle_location(self, id, **kwargs):
+        # Get record with matching id
+        vehicle_location_model = http.request.env["revision.schema"].sudo().browse(id)
+        # If there is record with id
+        if vehicle_location_model:
+            vehicle_location_model.unlink()
+            return http.Response(
+                json.dumps({"message": "The record deleted successfully"}),
+                content_type="application/json",
+            )
+        else:
+            return http.Response(
+                json.dumps({"error": "The record couldn't be deleted"}),
                 status=404,
                 content_type="application/json",
             )
