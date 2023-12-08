@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
     <menuitem id="child_menu_item_book" name="Book"
-       />
+    />
 
     <!--    Book Details-->
     <record id="book_form_record" model="ir.ui.view">
@@ -14,6 +14,7 @@
                         <group>
                             <field name="first_name" />
                             <field name="surname" />
+                            <field name="email" />
                         </group>
                     </group>
                 </sheet>
@@ -44,6 +45,7 @@
             <tree>
                 <field name="first_name" />
                 <field name="surname" />
+                <field name="email" />
             </tree>
         </field>
     </record>

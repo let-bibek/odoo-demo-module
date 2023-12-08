@@ -7,5 +7,4 @@ class Revision(models.Model):
 
     first_name = fields.Char()
     surname = fields.Char()
-    
-    
+    email = fields.Char()

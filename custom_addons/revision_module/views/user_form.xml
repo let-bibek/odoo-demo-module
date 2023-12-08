@@ -1,0 +1,24 @@
+<odoo>
+    <template id="vehicle_request_template">
+        <t t-call="website.layout">
+            <t t-set="page_js">
+            </t>
+            <div class="form-container" style="padding:2.5rem 32rem">
+                <form id="myForm" class="row g-3" method="POST" action="/user_registration/create">
+                    <div class="col-md-12">
+                        <label for="username" class="flcsjd">User Name</label>
+                        <input type="text" class="form-control" name="username" id="username" />
+                    </div>
+                    <div class="col-md-12">
+                        <label for="email">Email</label>
+                        <input type="email" class="form-control" name="email" id="email" />
+                    </div>
+                    <div class="col-12 d-flex justify-content-center">
+                        <button type="submit" role="button" id="showToastBtn"
+                            class="btn btn-primary">Register</button>
+                    </div>
+                </form>
+            </div>
+        </t>
+    </template>
+</odoo>

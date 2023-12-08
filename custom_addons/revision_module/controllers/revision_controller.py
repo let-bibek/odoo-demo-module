@@ -11,10 +11,14 @@ class VehicleCurrentLocation(http.Controller):
         type="http",
         auth="public",
         website=True,
+        cors="*",
+        csrf=False,
     )
-    def get_vehicle_location(self):
+    def get_vehicle_location(self, **kwargs):
         serialized_response = []
-        vehicle_current_coordinates = request.env["revision.schema"].sudo().search([])
+        vehicle_current_coordinates = (
+            http.request.env["revision.schema"].sudo().search([])
+        )
 
         for record in vehicle_current_coordinates:
             serialized_data = {
