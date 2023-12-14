@@ -1,0 +1,11 @@
+<odoo>
+    <template id="new_route_template" name="New Route Template">
+        <t name="revision_module.new_route_template">
+            <div id="json-data">
+                <!-- Assuming 'jsonData' contains your JSON data passed from the controller -->
+                <t t-esc="data" />
+            </div>
+        
+        </t>
+    </template>
+</odoo>

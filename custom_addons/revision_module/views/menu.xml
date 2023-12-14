@@ -1,10 +1,10 @@
 <odoo>
     <!--    App navigation-->
-    <menuitem id="menu_triplicate_root" name="Triplicate" />
+    <menuitem id="menu_triplicate_root" name="Revision"/>
 
     <!--    Triplicate actions-->
     <record id="triplicate_model_actions" model="ir.actions.act_window">
-        <field name="name">revision.model.action</field>
+        <field name="name">Revision</field>
         <field name="res_model">revision.schema</field>
         <field name="view_mode">tree,form</field>
     </record>

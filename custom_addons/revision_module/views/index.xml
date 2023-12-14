@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
     <menuitem id="child_menu_item_book" name="Book"
+        action="library_book_actions"
+        parent="menu_triplicate_root"
     />
 
     <!--    Book Details-->
@@ -10,13 +12,20 @@
         <field name="arch" type="xml">
             <form>
                 <sheet>
-                    <group>
+                    <row>
                         <group>
-                            <field name="first_name" />
-                            <field name="surname" />
-                            <field name="email" />
+                            <field name="first_name" string="First Name" />
+                            <field name="surname" string="Last Name" />
+                            <field name="email" string="Email" />
                         </group>
-                    </group>
+                    </row>
+                    <notebook>
+                        <page name="tickets" string="Tickets">
+                            <field name="first_name"></field>
+                            <field name="surname"></field>
+
+                        </page>
+                    </notebook>
                 </sheet>
             </form>
         </field>
@@ -43,9 +52,9 @@
         <field name="model">revision.schema</field>
         <field name="arch" type="xml">
             <tree>
-                <field name="first_name" />
-                <field name="surname" />
-                <field name="email" />
+                <field name="first_name" string="Name" />
+                <field name="surname" string="Surname" />
+                <field name="email" string="Email" />
             </tree>
         </field>
     </record>

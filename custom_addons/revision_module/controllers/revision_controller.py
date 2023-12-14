@@ -177,3 +177,10 @@ class VehicleCurrentLocation(http.Controller):
                 status=404,
                 content_type="application/json",
             )
+
+    # get: /new_route
+    @http.route("/new_route", type="http", website=True, auth="public")
+    def new_route(self):
+        data = {"name": "Bibek", "age": 22}
+
+        return request.render("revision_module.new_route_template", data)

@@ -1,0 +1,154 @@
+<odoo>
+
+  <!-- explicit list view definition -->
+
+  <!-- Upabhokta Samiti -->
+  <record model="ir.ui.view" id="upabhokta_samiti.list">
+    <field name="name">Upabhokta Samiti List</field>
+    <field name="model">upabhokta.samiti</field>
+    <field name="arch" type="xml">
+      <tree>
+        <field name="name" string="Name" />
+        <field name="registered_date" string="Registered Date" />
+        <field name="registered_date" string="Registered Date" />
+      </tree>
+    </field>
+  </record>
+
+  <record model="ir.ui.view" id="upabhokta_samiti.definition">
+    <field name="name">Upabhokta Samiti List</field>
+    <field name="model">upabhokta.samiti</field>
+    <field name="arch" type="xml">
+      <form string="Upabhokta Samiti Registration">
+        <sheet>
+          <group name="input.fields" string="Samiti Registration Form">
+            <group>
+              <field name="name" string="Name" />
+
+            </group>
+            <group>
+              <field name="registered_date" string="Registered Date" />
+            </group>
+          </group>
+
+          <div class="oe_title">
+          </div>
+          <notebook>
+            <page name="tickets" string="Tickets">
+              <field name="ticket_ids">
+                <tree>
+                  <field name="event_name" string="Event Name"></field>
+                  <field name="ticket_venue" string="Event Venue"></field>
+                  <field name="ticket_price" string="Ticket Price"></field>
+                  <field name="ticket_date" string="Event Date &amp; Time "></field>
+                </tree>
+                <form>
+                  <sheet>
+                    <group>
+                      <group>
+                        <field name="event_name" string="Event Name" />
+                        <field name="ticket_venue" string="Event Venue" />
+                      </group>
+                      <group>
+                        <field name="ticket_price" string="Ticket Price" />
+                        <field name="ticket_date" string="Event Date &amp; Time" />
+                      </group>
+                    </group>
+                  </sheet>
+                </form>
+              </field>
+            </page>
+          </notebook>
+          <div class="oe_title">
+          </div>
+        </sheet>
+      </form>
+    </field>
+  </record>
+
+
+  <!-- Tickets -->
+  <record id="tickets_model_view_tree" model="ir.ui.view">
+    <field name="name">tickets.model.view.tree</field>
+    <field name="model">tickets.model</field>
+    <field name="arch" type="xml">
+      <tree>
+        <field name="event_name" string="Event Name" />
+        <field name="ticket_venue" string="Event Venue" />
+        <field name="ticket_price" string="Ticket Price" />
+        <field name="ticket_date" string="ticket Date" />
+      </tree>
+    </field>
+  </record>
+
+
+  <record id="tickets_view_definition" model="ir.ui.view">
+    <field name="name">Tickets Form</field>
+    <field name="model">tickets.model</field>
+    <field name="arch" type="xml">
+      <form>
+        <sheet>
+          <group name="tickets_group">
+            <field name="event_name" string="Event Name"></field>
+            <field name="ticket_venue" string="Event Venue"></field>
+            <field name="ticket_price" string="Ticket Price"></field>
+            <field name="ticket_date" string="Event Date &amp; Time "></field>
+          </group>
+        </sheet>
+      </form>
+    </field>
+  </record>
+
+
+  <!-- actions opening views on models -->
+
+  <record model="ir.actions.act_window" id="upabhokta_samiti.action_window">
+    <field name="name">Upabhokta Samiti List</field>
+    <field name="res_model">upabhokta.samiti</field>
+    <field name="view_mode">tree,form,kanban</field>
+  </record>
+
+  <!-- Tickets Actions -->
+  <record id="tickets_action_window" model="ir.actions.act_window">
+    <field name="name">Tickets List</field>
+    <field name="res_model">tickets.model</field>
+    <field name="view_mode">tree,form</field>
+  </record>
+
+  <!-- server action to the one above -->
+  <!--
+    <record model="ir.actions.server" id="upabhokta_samiti.action_server">
+      <field name="name">upabhokta_samiti server</field>
+      <field name="model_id" ref="model_upabhokta_samiti_upabhokta_samiti"/>
+      <field name="state">code</field>
+      <field name="code">
+        action = { 
+          "type": "ir.actions.act_window",
+          "view_mode": "tree,form",
+          "res_model": model._name,
+        }
+      </field>
+    </record>
+-->
+
+  <!-- Top menu item -->
+
+  <menuitem name="Upabhokta Samiti" id="upabhokta_samiti.menu_root" sequence="0"
+    action="upabhokta_samiti.action_window" />
+
+  <!-- menu categories -->
+
+  <menuitem name="Tickets" id="upabhokta_samiti.list_tickets"
+    parent="upabhokta_samiti.menu_root" sequence="10" action="tickets_action_window" />
+
+  <menuitem name="Review Upabhokta Samiti" id="upabhokta_samiti.review_upabhokta"
+    parent="upabhokta_samiti.menu_root" sequence="20" />
+
+  <!-- actions -->
+  <!--
+    <menuitem name="List" id="upabhokta_samiti.menu_1_list" parent="upabhokta_samiti.menu_1"
+              action="upabhokta_samiti.action_window"/>
+    <menuitem name="Server to list" id="upabhokta_samiti" parent="upabhokta_samiti.menu_2"
+              action="upabhokta_samiti.action_server"/>
+-->
+</odoo>

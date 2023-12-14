@@ -8,6 +8,5 @@
             <field name="sequence" type="int">20</field>
             <field name="new_window" eval="False"></field>
         </record>
-
     </data>
 </odoo>

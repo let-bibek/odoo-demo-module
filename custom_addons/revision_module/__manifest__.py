@@ -9,6 +9,7 @@
         "views/menu.xml",
         "views/website_menu.xml",
         "views/user_form.xml",
+        "views/new_route.xml",
     ],
     "assets": {
         "web.assets_frontend": [
